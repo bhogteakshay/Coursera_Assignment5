@@ -112,7 +112,7 @@ h3.menu-item-title {
   font-style: italic;
 }
 
-#signupContainer label,legend{
+#signupContainer label,legend, span{
   color: white;
 }
 #signupContainer input{

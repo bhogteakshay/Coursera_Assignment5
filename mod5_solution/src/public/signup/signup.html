@@ -1,83 +1,64 @@
 <div class="container" id="signupContainer">
 
-<fieldset>
+  <legend>Sign Up</legend>
 
-<legend>Sign Up</legend>
   <form name="signupform" novalidate>
 
-    <div class="row">
-      <label for="firstName" class="col-md-2">First Name</label>
-      <input type="text" class="form-group"  name="firstName" value=""
-      ng-model="signUpCtrl.user.firstName"
-      required
-      minlength="2"
-      ng-maxlength="10">
-      <span
-          ng-if="(signupform.firstName.$error.minlength ||
-                  signupform.firstName.$error.required)
-                  && signupform.firstName.$touched">
-              First Name must be atleast 2 characters long
-      </span>
-      <span
-          ng-if="signupform.firstName.$error.maxlength
-                  && signupform.firstName.$touched">
-              First Name must be not longer than 10 characters.
-      </span>
-      <br>
+      <div class="row">
+        <label for="" class="col-md-2">First Name</label>
+        <input type="text" name="fn" ng-model="signUpCtrl.fn"
+        minlength="2"
+        ng-maxlength="10"
+        required>
+        <span ng-if="(signupform.fn.$error.required
+                      || signupform.fn.$error.minlength) && signupform.fn.$touched">
+            First Name must be atleast 2 characters long.
+        </span>
+        <span ng-if="signupform.fn.$error.maxlength && signupform.fn.$touched">
+            First Name must not be more than 10 characters long.
+        </span>
+      </div>
+      <div class="row">
+        <label for="" class="col-md-2">Last Name</label>
+        <input type="text" name="ln" ng-model="signUpCtrl.ln"
+        minlength="2"
+        ng-maxlength="10"
+        required>
+        <span ng-if="(signupform.ln.$error.required
+                      || signupform.ln.$error.minlength) && signupform.ln.$touched">
+            Last Name must be atleast 2 characters long.
+        </span>
+        <span ng-if="signupform.ln.$error.maxlength && signupform.ln.$touched">
+            Last Name must not be more than 10 characters long.
+        </span>
+      </div>
+      <div class="row">
+        <label for="" class="col-md-2">Email</label>
+        <input type="email" name="emailId" ng-model="signUpCtrl.emailId"
+        required>
+        <span ng-if="signupform.emailId.$invalid && signupform.emailId.$touched">
+            Email must be in valid format: whatever@domain format.
+        </span>
+      </div>
+        <div class="row">
+          <label for="" class="col-md-2">Phone Number</label>
+          <input type="text" name="phNumber" ng-model="signUpCtrl.phNumber"
+          pattern="(\d{3})-(\d{3})-(\d{4})"
+          required>
+          <span ng-if="signupform.phNumber.$invalid && signupform.phNumber.$touched">
+              Phpne must be in valid format: ###-###-####.
+          </span>
+      </div>
+      <div class="row">
+        <label for="" class="col-md-2">Favorite Menu No:</label>
+        <input type="text" name="menuNumber" ng-model="signUpCtrl.menuNumber" ng-blur="signUpCtrl.checkForMenuExists();">
+        <span ng-show="signUpCtrl.status">No such menu number exists</span>
     </div>
-
-
-<div class="row">
-    <label for="lastName" class="col-md-2">Last Name</label>
-    <input type="text" name="lastName" value=""
-    ng-model="signUpCtrl.user.lastName"
-    required
-    minlength="2"
-    ng-maxlength="10"
-    required>
-    <span
-        ng-if="(signupform.lastName.$error.minlength ||
-                signupform.lastName.$error.required)
-                && signupform.lastName.$touched">
-            Last Name must be atleast 2 characters long
-    </span>
-    <span
-        ng-if="signupform.lastName.$error.maxlength
-                && signupform.lastName.$touched">
-            Last Name must be not longer than 10 characters.
-    </span>
-    <br>
-</div>
-
-<div class="row">
-    <label for="email" class="col-md-2">Email</label>
-    <input type="email" name="email"
-      ng-model="signUpCtrl.user.email"
-      required>
-      <span
-          ng-if="signupform.email.$invalid && signupform.email.$touched">
-              Must be valid address: handle@domain format
-      </span>
-      <br>
-</div>
-
-<div class="row">
-  <label for="phoneNumber" class="col-md-2">Phone Number</label>
-  <input type="text" name="phoneNumber" value=""
-    pattern="(\d{3})-(\d{3})-(\d{4})"
-    ng-model="signUpCtrl.user.phoneNumber"
-    required>
-  <span
-      ng-if="signupform.phoneNumber.$invalid && signupform.phoneNumber.$touched">
-        phone must be in format ###-###-####
-  </span>
-  <br>
-</div>
-
-    <button type="button" class="btn btn-danger"
-          ng-click="signupform.submit()"
-          ng-disabled="signupform.$invalid">Submit</button>
-
+    <div class="row">
+        <button type="button" ng-disabled="signupform.$invalid" name="Submit" class="btn btn-danger" ng-click="signUpCtrl.submit();">Submit</button>
+    </div>
+    <div class="row">
+        <span ng-show="signUpCtrl.successMessage">Your information has been saved</span>
+    </div>
   </form>
-</fieldset>
 </div>

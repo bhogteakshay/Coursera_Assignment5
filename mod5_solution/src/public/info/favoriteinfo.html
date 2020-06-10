@@ -1,0 +1,47 @@
+<div class="container" id="signupContainer">
+
+<div ng-show="!infoUpCtrl.notSignedUp">
+  <legend>Your Registered Information</legend>
+
+  <h4>Personal Information:</h4>
+    <div class="row">
+      <label for="" class="label">First Name : {{infoUpCtrl.firstName}}</label>
+    </div>
+    <div class="row">
+      <label for="" class="label">Last Name : {{infoUpCtrl.lastName}}</label>
+    </div>
+    <div class="row">
+      <label for="" class="label">Email : {{infoUpCtrl.email}}</label>
+    </div>
+    <div class="row">
+      <label for="" class="label">Phone Number : {{infoUpCtrl.phoneNumber}}</label>
+    </div>
+
+    <hr>
+
+  <h4>Your Favorite menu:</h4>
+  <div class="row">
+    <label for="" class="label">{{infoUpCtrl.menu_name}}</label>
+  </div>
+  <div class="row">
+    <img width="200" height="200" ng-src="images/menu/{{infoUpCtrl.menu_category_short_name}}/{{infoUpCtrl.menu_category_short_name}}.jpg" alt="{{infoUpCtrl.menu_category_short_name}}">
+    <span>{{infoUpCtrl.menu_category_short_name}}</span>
+  </div>
+  <div class="row">
+    <label for="" class="label">{{infoUpCtrl.menu_description}}</label>
+  </div>
+  <div class="row">
+    <label for="" class="label">Price: (large) {{infoUpCtrl.menu_price_large}} || (small) {{infoUpCtrl.menu_price_small}}</label>
+  </div>
+</div>
+<div ng-if="infoUpCtrl.notSignedUp">
+  <h1>Not Signed Up Yet. Sign up Now!</h1>
+  <button type="button" name="button" class="btn btn-primary" ui-sref="public.signup">Sign Up</button>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+</div>
+</div>
