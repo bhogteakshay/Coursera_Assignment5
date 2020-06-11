@@ -14,6 +14,8 @@ SignupController.$inject = ['MenuService']
 
 
       $ctrl.checkForMenuExists = function () {
+
+        if($ctrl.menuNumber != undefined){
           MenuService.getMenuItem($ctrl.menuNumber).then(function(d){
               if(d.status){
               $ctrl.status = d.status;
@@ -23,6 +25,10 @@ SignupController.$inject = ['MenuService']
                 $ctrl.status="";
               }
           });
+
+          }
+
+
       }
 
       $ctrl.submit = function(e){
